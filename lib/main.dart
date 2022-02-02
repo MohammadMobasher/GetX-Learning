@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Base/app_route.dart';
 import 'package:flutter_application_2/Home.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: AppRoute.routes,
       debugShowCheckedModeBanner: false,
       title: 'Navigation',
       home: Scaffold(

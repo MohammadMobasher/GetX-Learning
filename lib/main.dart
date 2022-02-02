@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Snackbar',
+      title: 'Dialog',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Snackbar"),
+          title: const Text("Dialog"),
         ),
         body: Center(
           child: Column(
@@ -25,22 +25,51 @@ class MyApp extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Get.snackbar("title", "message",
-                      titleText: const Text("mohammad"),
-                      messageText: const Text("message text"),
-                      backgroundColor: Colors.red,
-                      icon: const Icon(Icons.ac_unit),
-                      snackPosition: SnackPosition.BOTTOM,
-                      margin: const EdgeInsets.only(
-                          bottom: 10, right: 10, left: 10),
-                      isDismissible: true,
-                      dismissDirection: DismissDirection.horizontal,
-                      overlayBlur: 2,
-                      overlayColor: Colors.grey,
-                      mainButton: TextButton(
+                  Get.defaultDialog(
+                    title: "dialog",
+                    middleText: "middleText",
+                    radius: 8,
+                    content: Row(
+                      children: const [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text("mmmm")
+                      ],
+                    ),
+                    textCancel: "cancel",
+                    cancel: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("Cancel"),
+                    ),
+                    cancelTextColor: Colors.red,
+                    actions: [
+                      ElevatedButton(
                         onPressed: () {},
-                        child: const Text("retry"),
-                      ));
+                        child: const Text("new action"),
+                      )
+                    ],
+                    onCancel: () {},
+                    onConfirm: () {},
+                  );
+
+                  // Get.snackbar("title", "message",
+                  //     titleText: const Text("mohammad"),
+                  //     messageText: const Text("message text"),
+                  //     backgroundColor: Colors.red,
+                  //     icon: const Icon(Icons.ac_unit),
+                  //     snackPosition: SnackPosition.BOTTOM,
+                  //     margin: const EdgeInsets.only(
+                  //         bottom: 10, right: 10, left: 10),
+                  //     isDismissible: true,
+                  //     dismissDirection: DismissDirection.horizontal,
+                  //     overlayBlur: 2,
+                  //     overlayColor: Colors.grey,
+                  //     mainButton: TextButton(
+                  //       onPressed: () {},
+                  //       child: const Text("retry"),
+                  //     ));
                 },
                 child: const Text("Please push me"),
               )

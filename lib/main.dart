@@ -7,11 +7,25 @@ void main() {
   runApp(MyApp());
 }
 
+class Countable {
+  // var count = 0.obs;
+  var count;
+
+  Countable({this.count = 0});
+}
+
 class MyApp extends StatelessWidget {
   // const MyApp({Key? key}) : super(key: key);
+  // var countable = Countable(count: 0);
+  // var coutableOBS = Countable();
+  final countable = Countable(count: 0).obs;
 
   void increment() {
     count++;
+    // countable.value.count++;
+    countable.update((nct) {
+      countable.value.count += 1;
+    });
   }
 
   var count = 0.obs;
@@ -35,7 +49,7 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Obx(() => Text(
-                    "item count is " + count.toString(),
+                    "item count is " + countable.value.count.toString(),
                   )),
               ElevatedButton(
                 onPressed: () async {

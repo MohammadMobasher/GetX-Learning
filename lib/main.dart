@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dialog',
+      title: 'Bottom Sheet',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Dialog"),
+          title: const Text("Bottom Sheet"),
         ),
         body: Center(
           child: Column(
@@ -25,34 +25,70 @@ class MyApp extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Get.defaultDialog(
-                    title: "dialog",
-                    middleText: "middleText",
-                    radius: 8,
-                    content: Row(
-                      children: const [
-                        CircularProgressIndicator(),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text("mmmm")
-                      ],
+                  Get.bottomSheet(
+                    Container(
+                      color: Colors.red,
+                      child: Wrap(
+                        children: [
+                          ListTile(
+                            leading: const Icon(Icons.dark_mode),
+                            title: const Text("dark mode"),
+                            onTap: () {
+                              Get.changeTheme(ThemeData.dark());
+                              Get.back();
+                            },
+                          ),
+                          ListTile(
+                            leading: const Icon(Icons.light_mode),
+                            title: const Text("Light mode"),
+                            onTap: () {
+                              Get.changeTheme(ThemeData.light());
+                              Get.back();
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                    textCancel: "cancel",
-                    cancel: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text("Cancel"),
+                    barrierColor: Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: const BorderSide(
+                        style: BorderStyle.solid,
+                        width: 2.0,
+                        color: Colors.white,
+                      ),
                     ),
-                    cancelTextColor: Colors.red,
-                    actions: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text("new action"),
-                      )
-                    ],
-                    onCancel: () {},
-                    onConfirm: () {},
+                    enableDrag: false,
                   );
+
+                  // Get.defaultDialog(
+                  //   title: "dialog",
+                  //   middleText: "middleText",
+                  //   radius: 8,
+                  //   content: Row(
+                  //     children: const [
+                  //       CircularProgressIndicator(),
+                  //       SizedBox(
+                  //         width: 15,
+                  //       ),
+                  //       Text("mmmm")
+                  //     ],
+                  //   ),
+                  //   textCancel: "cancel",
+                  //   cancel: ElevatedButton(
+                  //     onPressed: () {},
+                  //     child: const Text("Cancel"),
+                  //   ),
+                  //   cancelTextColor: Colors.red,
+                  //   actions: [
+                  //     ElevatedButton(
+                  //       onPressed: () {},
+                  //       child: const Text("new action"),
+                  //     )
+                  //   ],
+                  //   onCancel: () {},
+                  //   onConfirm: () {},
+                  // );
 
                   // Get.snackbar("title", "message",
                   //     titleText: const Text("mohammad"),

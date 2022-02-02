@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Home.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Bottom Sheet',
+      title: 'Navigation',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Bottom Sheet"),
+          title: const Text("Navigation"),
         ),
         body: Center(
           child: Column(
@@ -24,42 +25,59 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
-                  Get.bottomSheet(
-                    Container(
-                      color: Colors.red,
-                      child: Wrap(
-                        children: [
-                          ListTile(
-                            leading: const Icon(Icons.dark_mode),
-                            title: const Text("dark mode"),
-                            onTap: () {
-                              Get.changeTheme(ThemeData.dark());
-                              Get.back();
-                            },
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.light_mode),
-                            title: const Text("Light mode"),
-                            onTap: () {
-                              Get.changeTheme(ThemeData.light());
-                              Get.back();
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    barrierColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      side: const BorderSide(
-                        style: BorderStyle.solid,
-                        width: 2.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    enableDrag: false,
-                  );
+                onPressed: () async {
+                  // Get.to(
+                  //   const Home(),
+                  //   // for show closing icon on the top of screen
+                  //   fullscreenDialog: true,
+                  //   transition: Transition.zoom,
+                  //   duration: const Duration(milliseconds: 1000),
+                  //   // curve: Curves.bounceInOut,
+                  // );
+
+                  // Get.off(Home());
+
+                  // Get.offAll(Home());
+
+                  // Get.to(Home(), arguments: "the input to next screen");
+                  // var data = await Get.to(const Home(),
+                  //     arguments: "the input to next screen");
+
+                  // Get.bottomSheet(
+                  //   Container(
+                  //     color: Colors.red,
+                  //     child: Wrap(
+                  //       children: [
+                  //         ListTile(
+                  //           leading: const Icon(Icons.dark_mode),
+                  //           title: const Text("dark mode"),
+                  //           onTap: () {
+                  //             Get.changeTheme(ThemeData.dark());
+                  //             Get.back();
+                  //           },
+                  //         ),
+                  //         ListTile(
+                  //           leading: const Icon(Icons.light_mode),
+                  //           title: const Text("Light mode"),
+                  //           onTap: () {
+                  //             Get.changeTheme(ThemeData.light());
+                  //             Get.back();
+                  //           },
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  //   barrierColor: Colors.grey,
+                  //   shape: RoundedRectangleBorder(
+                  //     borderRadius: BorderRadius.circular(8),
+                  //     side: const BorderSide(
+                  //       style: BorderStyle.solid,
+                  //       width: 2.0,
+                  //       color: Colors.white,
+                  //     ),
+                  //   ),
+                  //   enableDrag: false,
+                  // );
 
                   // Get.defaultDialog(
                   //   title: "dialog",
@@ -107,7 +125,7 @@ class MyApp extends StatelessWidget {
                   //       child: const Text("retry"),
                   //     ));
                 },
-                child: const Text("Please push me"),
+                child: const Text("new screen"),
               )
             ],
           ),

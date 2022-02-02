@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Base/app_route.dart';
+import 'package:flutter_application_2/Controller/CountableController.dart';
 import 'package:flutter_application_2/Home.dart';
 import 'package:get/get.dart';
 
@@ -7,28 +8,31 @@ void main() {
   runApp(MyApp());
 }
 
-class Countable {
-  // var count = 0.obs;
-  var count;
+// class Countable {
+//   // var count = 0.obs;
+//   var count;
 
-  Countable({this.count = 0});
-}
+//   Countable({this.count = 0});
+// }
 
 class MyApp extends StatelessWidget {
   // const MyApp({Key? key}) : super(key: key);
+
+  // Countableontroller countableontroller = Get.put(Countableontroller());
+
   // var countable = Countable(count: 0);
   // var coutableOBS = Countable();
-  final countable = Countable(count: 0).obs;
+  // final countable = Countable(count: 0).obs;
 
-  void increment() {
-    count++;
-    // countable.value.count++;
-    countable.update((nct) {
-      countable.value.count += 1;
-    });
-  }
+  // void increment() {
+  //   count++;
+  //   // countable.value.count++;
+  //   countable.update((nct) {
+  //     countable.value.count += 1;
+  //   });
+  // }
 
-  var count = 0.obs;
+  // var count = 0.obs;
   // final iemCount = RxInt(0);
 // final itemCount = Rx<int>(0);
 
@@ -38,22 +42,26 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: AppRoute.routes,
       debugShowCheckedModeBanner: false,
-      title: 'Navigation',
+      title: 'State management',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Navigation"),
+          title: const Text("State management"),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Obx(() => Text(
-                    "item count is " + countable.value.count.toString(),
-                  )),
+              // Obx(() => Text(
+              //       "item count is " +
+              //           countableontroller.countable.value.count.toString(),
+              //     )),
               ElevatedButton(
                 onPressed: () async {
-                  increment();
+                  Get.toNamed(AppRoute.home);
+
+                  // countableontroller.increamentCount();
+                  // increment();
 
                   // Get.toNamed(AppRoute.home);
 

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Controller/CountableController.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+
+  final Countableontroller _countableontroller = Get.put(Countableontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +18,27 @@ class Home extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const Text("Home Screen"),
+            GetX<Countableontroller>(
+                // init: Countableontroller(),
+                builder: (controller) {
+              return Text(controller.countable.value.count.toString());
+            }),
+
             ElevatedButton(
               onPressed: () {
-                Get.back();
+                // Get.find<Countableontroller>().increamentCount();
+                _countableontroller.increamentCount();
               },
-              child: const Text("Back"),
+              child: const Text("increament"),
             )
+
+            //   const Text("Home Screen"),
+            //   ElevatedButton(
+            //     onPressed: () {
+            //       Get.back();
+            //     },
+            //     child: const Text("Back"),
+            //   )
           ],
         ),
       ),

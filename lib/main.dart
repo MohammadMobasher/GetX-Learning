@@ -4,6 +4,8 @@ import 'package:flutter_application_2/Controller/CountableController.dart';
 import 'package:flutter_application_2/Home.dart';
 import 'package:get/get.dart';
 
+import 'Base/Translate.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -42,10 +44,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: AppRoute.routes,
       debugShowCheckedModeBanner: false,
-      title: 'State management',
+      translations: Translate(),
+      locale: const Locale("en", "US"),
+      fallbackLocale: const Locale("fa", "PR"),
+      title: 'Translations',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("State management"),
+          title: const Text("Translations"),
         ),
         body: Center(
           child: Column(
@@ -57,115 +62,118 @@ class MyApp extends StatelessWidget {
               //           countableontroller.countable.value.count.toString(),
               //     )),
               ElevatedButton(
-                onPressed: () async {
-                  Get.toNamed(AppRoute.home);
+                  onPressed: () async {
+                    Get.updateLocale(const Locale("fa", "PR"));
 
-                  // countableontroller.increamentCount();
-                  // increment();
+                    // Get.toNamed(AppRoute.home);
 
-                  // Get.toNamed(AppRoute.home);
+                    // countableontroller.increamentCount();
+                    // increment();
 
-                  // Get.to(
-                  //   const Home(),
-                  //   // for show closing icon on the top of screen
-                  //   fullscreenDialog: true,
-                  //   transition: Transition.zoom,
-                  //   duration: const Duration(milliseconds: 1000),
-                  //   // curve: Curves.bounceInOut,
-                  // );
+                    // Get.toNamed(AppRoute.home);
 
-                  // Get.off(Home());
+                    // Get.to(
+                    //   const Home(),
+                    //   // for show closing icon on the top of screen
+                    //   fullscreenDialog: true,
+                    //   transition: Transition.zoom,
+                    //   duration: const Duration(milliseconds: 1000),
+                    //   // curve: Curves.bounceInOut,
+                    // );
 
-                  // Get.offAll(Home());
+                    // Get.off(Home());
 
-                  // Get.to(Home(), arguments: "the input to next screen");
-                  // var data = await Get.to(const Home(),
-                  //     arguments: "the input to next screen");
+                    // Get.offAll(Home());
 
-                  // Get.bottomSheet(
-                  //   Container(
-                  //     color: Colors.red,
-                  //     child: Wrap(
-                  //       children: [
-                  //         ListTile(
-                  //           leading: const Icon(Icons.dark_mode),
-                  //           title: const Text("dark mode"),
-                  //           onTap: () {
-                  //             Get.changeTheme(ThemeData.dark());
-                  //             Get.back();
-                  //           },
-                  //         ),
-                  //         ListTile(
-                  //           leading: const Icon(Icons.light_mode),
-                  //           title: const Text("Light mode"),
-                  //           onTap: () {
-                  //             Get.changeTheme(ThemeData.light());
-                  //             Get.back();
-                  //           },
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  //   barrierColor: Colors.grey,
-                  //   shape: RoundedRectangleBorder(
-                  //     borderRadius: BorderRadius.circular(8),
-                  //     side: const BorderSide(
-                  //       style: BorderStyle.solid,
-                  //       width: 2.0,
-                  //       color: Colors.white,
-                  //     ),
-                  //   ),
-                  //   enableDrag: false,
-                  // );
+                    // Get.to(Home(), arguments: "the input to next screen");
+                    // var data = await Get.to(const Home(),
+                    //     arguments: "the input to next screen");
 
-                  // Get.defaultDialog(
-                  //   title: "dialog",
-                  //   middleText: "middleText",
-                  //   radius: 8,
-                  //   content: Row(
-                  //     children: const [
-                  //       CircularProgressIndicator(),
-                  //       SizedBox(
-                  //         width: 15,
-                  //       ),
-                  //       Text("mmmm")
-                  //     ],
-                  //   ),
-                  //   textCancel: "cancel",
-                  //   cancel: ElevatedButton(
-                  //     onPressed: () {},
-                  //     child: const Text("Cancel"),
-                  //   ),
-                  //   cancelTextColor: Colors.red,
-                  //   actions: [
-                  //     ElevatedButton(
-                  //       onPressed: () {},
-                  //       child: const Text("new action"),
-                  //     )
-                  //   ],
-                  //   onCancel: () {},
-                  //   onConfirm: () {},
-                  // );
+                    // Get.bottomSheet(
+                    //   Container(
+                    //     color: Colors.red,
+                    //     child: Wrap(
+                    //       children: [
+                    //         ListTile(
+                    //           leading: const Icon(Icons.dark_mode),
+                    //           title: const Text("dark mode"),
+                    //           onTap: () {
+                    //             Get.changeTheme(ThemeData.dark());
+                    //             Get.back();
+                    //           },
+                    //         ),
+                    //         ListTile(
+                    //           leading: const Icon(Icons.light_mode),
+                    //           title: const Text("Light mode"),
+                    //           onTap: () {
+                    //             Get.changeTheme(ThemeData.light());
+                    //             Get.back();
+                    //           },
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    //   barrierColor: Colors.grey,
+                    //   shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(8),
+                    //     side: const BorderSide(
+                    //       style: BorderStyle.solid,
+                    //       width: 2.0,
+                    //       color: Colors.white,
+                    //     ),
+                    //   ),
+                    //   enableDrag: false,
+                    // );
 
-                  // Get.snackbar("title", "message",
-                  //     titleText: const Text("mohammad"),
-                  //     messageText: const Text("message text"),
-                  //     backgroundColor: Colors.red,
-                  //     icon: const Icon(Icons.ac_unit),
-                  //     snackPosition: SnackPosition.BOTTOM,
-                  //     margin: const EdgeInsets.only(
-                  //         bottom: 10, right: 10, left: 10),
-                  //     isDismissible: true,
-                  //     dismissDirection: DismissDirection.horizontal,
-                  //     overlayBlur: 2,
-                  //     overlayColor: Colors.grey,
-                  //     mainButton: TextButton(
-                  //       onPressed: () {},
-                  //       child: const Text("retry"),
-                  //     ));
-                },
-                child: const Text("new screen"),
-              )
+                    // Get.defaultDialog(
+                    //   title: "dialog",
+                    //   middleText: "middleText",
+                    //   radius: 8,
+                    //   content: Row(
+                    //     children: const [
+                    //       CircularProgressIndicator(),
+                    //       SizedBox(
+                    //         width: 15,
+                    //       ),
+                    //       Text("mmmm")
+                    //     ],
+                    //   ),
+                    //   textCancel: "cancel",
+                    //   cancel: ElevatedButton(
+                    //     onPressed: () {},
+                    //     child: const Text("Cancel"),
+                    //   ),
+                    //   cancelTextColor: Colors.red,
+                    //   actions: [
+                    //     ElevatedButton(
+                    //       onPressed: () {},
+                    //       child: const Text("new action"),
+                    //     )
+                    //   ],
+                    //   onCancel: () {},
+                    //   onConfirm: () {},
+                    // );
+
+                    // Get.snackbar("title", "message",
+                    //     titleText: const Text("mohammad"),
+                    //     messageText: const Text("message text"),
+                    //     backgroundColor: Colors.red,
+                    //     icon: const Icon(Icons.ac_unit),
+                    //     snackPosition: SnackPosition.BOTTOM,
+                    //     margin: const EdgeInsets.only(
+                    //         bottom: 10, right: 10, left: 10),
+                    //     isDismissible: true,
+                    //     dismissDirection: DismissDirection.horizontal,
+                    //     overlayBlur: 2,
+                    //     overlayColor: Colors.grey,
+                    //     mainButton: TextButton(
+                    //       onPressed: () {},
+                    //       child: const Text("retry"),
+                    //     ));
+                  },
+                  child: Text("key".tr)
+                  // const Text("new screen"),
+                  )
             ],
           ),
         ),

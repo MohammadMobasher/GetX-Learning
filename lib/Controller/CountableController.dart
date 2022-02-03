@@ -7,6 +7,20 @@ class Countable {
 }
 
 class Countableontroller extends GetxController {
+  @override
+  void onInit() {
+    super.onInit();
+
+    ever(countable.value.count, (_) => print(countable.value.count));
+
+    everAll(countable.value.count, (_) => print(countable.value.count));
+
+    once(countable.value.count, (_) => print(countable.value.count));
+
+    debounce(countable.value.count, (_) => print(countable.value.count),
+        time: const Duration(seconds: 1));
+  }
+
   var countable = Countable(count: 0).obs;
   // var countable = Countable();
 
@@ -15,5 +29,10 @@ class Countableontroller extends GetxController {
     countable.update((val) {
       countable.value.count++;
     });
+  }
+
+  @override
+  void dispose() {
+    print("disposed");
   }
 }

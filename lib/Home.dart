@@ -20,7 +20,9 @@ class Home extends StatelessWidget {
           children: [
             GetX<Countableontroller>(
                 // init: Countableontroller(),
-                builder: (controller) {
+                dispose: (_) {
+              return _countableontroller.dispose();
+            }, builder: (controller) {
               return Text(controller.countable.value.count.toString());
             }),
 

@@ -19,6 +19,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             GetX<Countableontroller>(
+
                 // init: Countableontroller(),
                 dispose: (_) {
               return _countableontroller.dispose();

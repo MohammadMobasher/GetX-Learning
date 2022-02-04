@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
                 // Get.find<Countableontroller>().increamentCount();
                 _countableontroller.increamentCount();
               },
-              child: const Text("increament"),
+              child: Text("increament".tr),
             )
 
             //   const Text("Home Screen"),

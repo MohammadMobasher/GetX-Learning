@@ -3,10 +3,12 @@ import 'package:flutter_application_2/Base/app_route.dart';
 import 'package:flutter_application_2/Controller/CountableController.dart';
 import 'package:flutter_application_2/Home.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'Base/Translate.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(MyApp());
 }
 
@@ -47,10 +49,10 @@ class MyApp extends StatelessWidget {
       translations: Translate(),
       locale: const Locale("en", "US"),
       fallbackLocale: const Locale("fa", "PR"),
-      title: 'Translations',
+      title: 'GetView',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Translations"),
+          title: const Text("GetView"),
         ),
         body: Center(
           child: Column(
@@ -63,7 +65,9 @@ class MyApp extends StatelessWidget {
               //     )),
               ElevatedButton(
                   onPressed: () async {
-                    Get.updateLocale(const Locale("fa", "PR"));
+                    Get.to(AppRoute.home2);
+
+                    // Get.updateLocale(const Locale("fa", "PR"));
 
                     // Get.toNamed(AppRoute.home);
 
